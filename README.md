@@ -31,10 +31,10 @@ app/run.py runserver
 [127.0.0.1:3000](http://127.0.0.1:3000/index)
 Please Register an account before shopping
 
-![image](/Pizza_shop_site-Meijuan/readme_images/user_login.jpeg)<br>
-![image](/Pizza_shop_site-Meijuan/readme_images/cart.jpeg)<br>
-![image](/Pizza_shop_site-Meijuan/readme_images/user_orders.jpeg)<br>
-![image](/Pizza_shop_site-Meijuan/readme_images/user_checkout.jpeg)<br>
-![image](/Pizza_shop_site-Meijuan/readme_images/admin_orderlist.jpeg)<br>
-![image](/Pizza_shop_site-Meijuan/readme_images/admin_pizzalist.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/user_login.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/cart.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/user_orders.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/user_checkout.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/admin_orderlist.jpeg)<br>
+![image](/Pizza_shop_site/readme_images/admin_pizzalist.jpeg)<br>
 
