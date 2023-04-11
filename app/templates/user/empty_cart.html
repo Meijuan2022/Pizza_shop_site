@@ -1,0 +1,20 @@
+{% extends "user/base.html" %}
+
+{% block body_content %}
+<div class="container" >
+<div class = 'row'> <h1>My cart</h1></div>
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/static/images/empty_cart.jpeg" alt="" >
+    <h1 class="display-5 fw-bold text-body-emphasis">Empty Cart</h1>
+    <div class="col-lg-6 mx-auto">
+     <p class="lead mb-4">The cart is empty,to see what you want to enjoy.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="{{url_for('index')}}" class="btn btn-primary active  btn-lg">To see pizzas</a>
+<!--        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">To see pizzas</button>-->
+<!--        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "admin/admin_base.html" %}
+
+{% block body_content %}
+
+<div class="container" >
+    </div>
+
+     <div class=" text-center">
+         <img class="d-block mx-auto mb-4" src="/static/images/order_mag.jpeg" alt="" width="120" height="100">
+     </div>
+</div>
+   <div class="container-fluid">
+<div class="row"
+    <div class="table-responsive cart-info">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="text-center quantity">Order list</th>
+<!--                <td class="text-left quantity">User</td>-->
+<!--                <td class="text-left quantity">User ID</td>-->
+<!--                <td class="text-left image">Picture</td>-->
+<!--                <td class="text-left name">PizzaName</td>-->
+<!--                <td class="text-left quantity">Number</td>-->
+<!--                <td class="text-right price">Price</td>-->
+<!--                <td class="text-right" price>Accounts</td>  #total_price-->
+                <th class="text_center name">Receiver Name</th>
+                <th class="text-center name">Receiver Tel</th>
+                <th class="text-center name">Receiver Address</th>
+                <th class="text-center quantity">Deal Date</th>
+                <th class="text-center quantity">Status</th>
+                <th class="text-center quantity"><img src="/static/images/edit.jpeg "width=20px height=20px>Action </th>
+
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            {% for order in orders %}
+            <tr>
+                <td class="text-center name"><a href="{{url_for('admin_order_detail',order_id =order.id)}}">
+                 {{order.id}}</a></td>
+
+                <td class="text-center name">{{order.receive_name}}</td>
+                <td class="text-center quantity">{{order.receive_tel}}</td>
+                <td class="text-center quantity">{{order.receive_address}}</td>
+                <td class="text-center quantity">{{order.addtime}}</td>
+                <td class="text-center quantity">{{order.order_status}}</td>
+                {% if order.order_status=='Placed' %}
+                <td class="text-center quantity"><a href="{{url_for('admin_change_orderstatus',order_id=order.id, orderstatus='Shipping')}}" class="tigger btn btn-primary btn-primary btn-sm">Shipping</a></td>
+                {% elif order.order_status =='Shipping' %}
+                <td class="text-center quantity"><a href="{{url_for('admin_change_orderstatus',order_id=order.id, orderstatus='Completed')}}" class="tigger btn btn-primary btn-primary btn-sm">Complete</a></td>
+                {% else %}
+                <td class="text-center quantity"></td>
+                {% endif %}
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<hr>
+<div class="row text-center px-4 py-5 my-5">
+    <div class="col-sm-12">
+        <div class="buttons">
+            <div class="pull-right">
+                <a href="{{url_for('admin_index')}}" class="tigger btn btn-primary btn-primary btn-lg">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

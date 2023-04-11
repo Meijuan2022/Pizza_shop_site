@@ -1,0 +1,145 @@
+{% extends "user/base.html" %}
+{%block extra_style%}
+<!--        <link rel="stylesheet" href="{{url_for('static',filename='user/css/mr-01.css')}}" type="text/css">-->
+
+{%endblock%}
+
+<!--{% from 'bootstrap4/table.html' import render_table %}-->
+
+{% block body_content %}
+<div class="container" >
+    <div id="mr-content" class="mr-content col-xs-12">
+    <div id="mrshop" class="mrshop common-home">
+<div class = 'row'> <h1>My cart</h1></div>
+<div  text-center">
+    <img class="d-block mx-auto mb-4" src="/static/images/cart.jpeg" alt="" width="120" height="120">
+</div>
+    </div>
+<div class="container">
+
+<div class="table-responsive cart-info">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td class="text-center image">Picture</td>
+            <td class="text-left name">Name</td>
+            <td class="text-left quantity">Number</td>
+            <td class="text-right price">Price</td>
+            <td class="text-right">counts</td>
+            <td class="text-right"></td>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+
+        {% for item in carts %}
+        <tr>
+            <td class="text-center image">
+                    <img width="60px" height="60px" src="{{item.pizza.picture}}">
+            </td>
+            <td class="text-left name">{{item.pizza.name}}
+
+            </td>
+            <td class="text-left quantity">{{item.number}}</td>
+            <td class="text-right price">${{item.pizza.price}}</td>
+            <td class="text-right total" id="price" value="{{item.pizza.price * item.number}}">${{item.pizza.price * item.number}}
+
+            </td>
+            <td class="text-center image" >
+                <a href="{{url_for('delete_cart',cartid = item.id)}}"><img width="30px" height="30px" src="/static/images/del.jpeg"></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table
+
+</div>
+<!--    <script>-->
+<!--      var total_price =0;-->
+<!--      total_price +=document.getElementByID('price'.value)-->
+<!--      document.getElementById('total_price').innerHTML=total_price-->
+
+<!--    </script>-->
+<!-- show total price  -->
+<div class="row cart-total">
+    <div class="col-sm-4 col-sm-offset-8">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <span>
+                    <strong>Total Price:</strong>
+                    <p  id="total_price"> </p>
+                </span>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+    <div class="row">
+
+        <div class="col"><a href="{{url_for('clear_cart')}}" class="btn btn-secondary btn-lg">Clear Cart</a>
+            <a href="{{url_for('index')}}" class="btn btn-success btn-lg">Continue to Order</a>
+        </div>
+        <div class="col"><a href="{{url_for('check_out')}}" class="btn btn-primary btn-lg">To Checkout</a></div>
+    </div>
+
+{% endblock %}
+
+
+
+
+<!--show cart items-->
+<!-- show total price  -->
+<!-- fill in delivery information -->
+<!--                        <div class="row">-->
+<!--                            <div id="content_oc" class="col-sm-12">-->
+<!--                                <h1>物流信息</h1>-->
+<!--                                &lt;!&ndash; 填写物流信息的表单 &ndash;&gt;-->
+<!--                                <form action="{{url_for('cart_order')}}" method="post" id="myform">-->
+<!--                                    <div class="table-responsive cart-info">-->
+<!--                                        <table class="table table-bordered">-->
+<!--                                            <tbody>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-right" width="20%">收货人姓名：</td>-->
+<!--                                                    <td class="text-left quantity">-->
+<!--                                                        <div class="input-group btn-block" style="max-width: 400px;">-->
+<!--                                                            <input type="text" id="recevieName" name="recevie_name" size="10" class="form-control">-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-right">收货人手机：</td>-->
+<!--                                                    <td class="text-left quantity">-->
+<!--                                                        <div class="input-group btn-block" style="max-width: 400px;">-->
+<!--                                                            <input type="text" id="tel" name="recevie_tel" size="10" class="form-control">-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-right">收货人地址：</td>-->
+<!--                                                    <td class="text-left quantity">-->
+<!--                                                        <div class="input-group btn-block" style="max-width: 400px;">-->
+<!--                                                            <input type="text" id="address" name="recevie_address" size="1" class="form-control">-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-right">备注：</td>-->
+<!--                                                    <td class="text-left quantity">-->
+<!--                                                        <div class="input-group btn-block" style="max-width: 400px;">-->
+<!--                                                            <input type="text" name="remark" size="1" class="form-control">-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!-- //fill in delivery information -->
+

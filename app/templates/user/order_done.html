@@ -1,0 +1,12 @@
+{% extends "user/base.html" %}
+
+{% block body_content %}
+<div class="container">
+  <<div class = 'row'> <h1 class="text-center">Congratulations,{{current_user.username}},you have finished the order! </h1></div>
+  <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/static/images/done.png" alt="" >
+    <hr>
+    <a href="{{url_for('index')}}">Continue to have more orders.....</a>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "admin/admin_base.html" %}
+
+
+{% from 'bootstrap4/form.html' import render_form %}
+
+{% block body_content %}
+   <div class="container">
+<h1> Edit the pizza's information </h1>
+<hr>
+  <div class="container">
+   <div class="row">
+      <div class="col-md-4">
+
+        {{render_form(form)}}
+      </div>
+   </div>
+ </div>
+{% endblock %}

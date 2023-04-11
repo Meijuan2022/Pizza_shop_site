@@ -1,0 +1,67 @@
+{% extends "admin/admin_base.html" %}
+
+{% block body_content %}
+<br>
+<div class="container" >
+    </div>
+<!--      <h1>All the Orders</h1>-->
+     <div class=" text-center">
+         <img class="d-block mx-auto mb-4" src="/static/images/pizza_manage.jpeg" alt="" width="100" height="80">
+     </div>
+</div>
+   <div class="container-fluid">
+       <div class="buttons">
+            <div class="pull-right">
+                <a href="{{url_for('admin_add_pizza')}}" class="tigger btn btn-primary btn-primary ">Add a new pizza</a>
+            </div>
+        </div>
+<div class="row"
+    <div class="table-responsive cart-info">
+
+      <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="text-center ">Picture</th>
+                <th class="text-center name">PizzaName</th>
+                <th class="text-center price">Price</th>
+                <th class="text-center price">size</th>
+
+                <th class="text-center quantity">Toppings</th>
+                <th class="text-center price">Inventory</th>
+                <th class="text-center price">Sold </th>
+                <th class="text-center quantity"></th>
+
+            </tr>
+            </thead>
+          <tbody class="table-group-divider">
+            {% for pizza in pizzas %}
+            <tr>
+
+                <td class="text-center" ><img width="60px" height="60px" src="{{pizza.picture}}"></td>
+                <td class="text-center name">{{pizza.name}}</td>
+                <td class="text-center price">{{pizza.price}}</td>
+                <td class="text-center price">{{pizza.size}}</td>
+                <td class="text-center quantity">{{pizza.toppings}}</td>
+                <td class="text-center price">{{pizza.inventory}}</td>
+                <td class="text-center price">{{pizza.sold}}</td>
+                <td > <a href="{{url_for('admin_delete_pizza',pizzaid=pizza.id)}}">Delete</a>   <a href="{{url_for('admin_edit_pizza',pizzaid=pizza.id)}}">Edit</a></td>
+<!--                #total price-->
+            </tr>
+            {% endfor %}
+                        </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div class="row text-center px-4 py-5 my-5">
+    <div class="col-sm-12">
+        <div class="buttons">
+            <div class="pull-right">
+                <a href="{{url_for('admin_orderlist')}}" class="tigger btn btn-primary btn-primary btn-lg">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

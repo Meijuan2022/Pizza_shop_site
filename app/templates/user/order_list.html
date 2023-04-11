@@ -1,0 +1,69 @@
+{% extends "user/base.html" %}
+{%block extra_style%}
+<!--        <link rel="stylesheet" href="{{url_for('static',filename='user/css/mr-01.css')}}" type="text/css">-->
+
+{%endblock%}
+
+{% block body_content %}
+<div class="container">
+    <h1>My Orders</h1>
+    <div class=" text-center">
+        <img class="d-block mx-auto mb-4" src="/static/images/orderlist.jpeg" alt="" width="120" height="120">
+    </div>
+</div>
+<div class="container-fluid">
+
+    <div class="table-responsive cart-info">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td class="text-center price">Order list</td>
+                <td class="text-center image">Picture</td>
+                <td class="text-center name">PizzaName</td>
+                <td class="text-center quantity">Number</td>
+                <td class="text-right price">Price</td>
+                <td class="text-right" price>Accounts</td>
+                <td class="text_center quantity">Receiver Name</td>
+                <td class="text-left name">Receiver Tel</td>
+                <td class="text-center quantity">Deal Date</td>
+                <td class="text-center quantity">Status</td>
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            {% for order in orders %}
+            <tr>
+                <td class="text-center price">{{order.orders.id}}</td>
+                <td class="text-center image"><img width="60px" height="60px" src="{{order.pizza.picture}}">
+                <td class="text-center name">{{order.pizza.name}}</td>
+                <td class="text-center quantity">{{order.number}}</td>
+                <td class="text-center quantity">${{order.pizza.price}}</td>
+                <td class="text-center quantity">${{order.pizza.price * order.number}}</td>
+                <td class="text-center quantity">{{order.orders.receive_name}}</td>
+                <td class="text-center quantity">{{order.orders.receive_tel}}</td>
+                <td class="text-center quantity">{{order.orders.addtime}}</td>
+                {% if order.orders.order_status=='Placed'%}
+                <td class="text-center quantity">Order has been placed</td>
+                {% else %}
+                <td class="text-center quantity">{{order.orders.order_status}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row text-center px-4 py-1 my-1">
+<div class="col-sm-12">
+
+<!--    <div class="pull-right">-->
+        <a href="{{url_for('index')}}" class="tigger btn btn-primary btn-primary btn-lg">Continue to Order</a>
+<!--    </div>-->
+
+        </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Pizza house manage system</title>
+
+        {% block styles %}
+
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+            {% block extra_style %}
+             {% endblock %}
+
+        {% endblock %}
+
+       {% endblock %}
+    </head>
+    <body>
+
+        {% block content %}
+           {% include 'admin/admin_navbar.html'%}
+           {% block body_content%}
+           {% endblock %}
+        {% endblock %}
+
+            {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,58 @@
+{% extends "admin/admin_base.html" %}
+
+{% block body_content %}
+<div class="container" >
+    <div id="mr-content" class="mr-content col-xs-12">
+    <div id="mrshop" class="mrshop common-home">
+<!--      <h1>All the Orders</h1>-->
+     <div class=" text-center">
+         <img class="d-block mx-auto mb-4" src="/static/images/order_mag.jpeg" alt="" width="120" height="100">
+     </div>
+</div>
+<div class="container-fluid">
+    <h3>Order:{{order_details[0].order_id}}</h3>
+    <h5>User ID:  {{order_details[0].orders.user_id}}<br> User Name: {{order_details[0].orders.user.username}}</h5>
+    <div class="table-responsive cart-info">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+
+                <td class="text-left image">Picture</td>
+                <td class="text-center name">PizzaName</td>
+                <td class="text-center quantity">Number</td>
+                <td class="text-center price">Price</td>
+                <td class="text-center" price>Accounts</td>
+<!--                #total_price-->
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            {% for item in order_details %}
+            <tr>
+
+                <td class="text-left image" width="20%"><img width="80px" height="80px" src="{{item.pizza.picture}}">
+                <td class="text-center name">{{item.pizza.name}}</td>
+                <td class="text-center quantity">{{item.number}}</td>
+                <td class="text-center price">${{item.pizza.price}}</td>
+                <td class="text-center price">${{item.pizza.price * item.number}}</td>
+<!--                #total price-->
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+      </div>
+</div>
+<hr>
+<div class="row text-center px-4 py-5 my-5">
+    <div class="col-sm-12">
+        <div class="buttons">
+            <div class="pull-right">
+                <a href="{{url_for('admin_orderlist')}}" class="tigger btn btn-primary btn-primary btn-lg">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
